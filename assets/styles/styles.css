@@ -1,0 +1,21 @@
+.hero{
+}
+
+.hero-title{
+    margin-top: 250px;
+
+    font-family: Gabarito;
+    font-weight: 600;
+    font-size: 55px;
+}
+
+.hero-info{
+    font-family: Gabarito;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.submit-btn{
+    border: solid black;
+    padding: 5px;
+}

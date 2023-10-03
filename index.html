@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./assets/styles/styles.css">
+    <title>Sports App</title>
+</head>
+<body>
+    <navbar class="flex items-center justify-end h-14 bg-gray-400">
+        <section class="flex mr-12 gap-14">
+            <a href="#">Sports</a>
+            <a href="#">Standings</a>
+            <a href="#">Teams</a>
+        </section>
+    </navbar>
+
+    <hero class="hero flex flex-col items-center">
+        <h1 class="hero-title">Your home for sports stats</h1>
+        <p class="hero-info">Select a sport then search any team, player, or game</p>
+    </hero>
+    <search class="search-box flex justify-center mt-8 gap-10">
+        <input type="search" placeholder="Search for anything" class="border-2">
+        <button class="submit-btn" type="submit" value="Submit"> Submit</button>
+    </search>
+
+    <script src="./assets/scripts/script.js"></script>
+</body>
+</html>
