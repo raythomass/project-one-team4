@@ -8,21 +8,64 @@
     <title>Sports App</title>
 </head>
 <body>
-    <navbar class="flex items-center justify-end h-14 bg-gray-400">
-        <section class="flex mr-12 gap-14">
+    <navbar class="flex items-center justify-between h-14 bg-gray-400">
+        <!-- Old Navbar -->
+        <!-- <section class="flex mr-12 gap-14">
             <a href="#">Sports</a>
             <a href="#">Standings</a>
             <a href="#">Teams</a>
+        </section> -->
+        <section class="ml-8">
+            <h1>Football Database</h1>
         </section>
+        <!-- Navbar Searchbar -->
+        <!-- <section class="mr-8">
+            <input type="text" placeholder="Search">
+        </section> -->
     </navbar>
 
     <hero class="hero flex flex-col items-center">
-        <h1 class="hero-title">Your home for sports stats</h1>
-        <p class="hero-info">Select a sport then search any team, player, or game</p>
+        <h1 class="hero-title">Your personal football database</h1>
+        <p class="hero-info">Select your favorite team for the latest stats and information</p>
     </hero>
-    <search class="search-box flex justify-center mt-8 gap-10">
-        <input id="search-bx" type="search" placeholder="Search for anything" class="border-2">
-        <button id="search-btn" class="submit-btn" type="submit" value="Submit"> Submit</button>
+    <search class="search-box flex justify-center items-center mt-12 gap-10">
+        <!-- Label for tthe team selector (optional) -->
+        <!-- <label for="Teams"></label> -->
+            <select name="Teams" id="Teams" class="team-selector">
+                <option value="cardinals">Arizona Cardinals</option>
+                <option value="cardinals">Atlanta Falcons</option>
+                <option value="cardinals">Baltimore Ravens</option>
+                <option value="cardinals">Buffalo Bills</option>
+                <option value="cardinals">Carolina Panthers</option>
+                <option value="cardinals">Chicago Bears</option>
+                <option value="cardinals">Cincinnati Bengals</option>
+                <option value="cardinals">Cleveland Browns</option>
+                <option value="cardinals">Dallas Cowboys</option>
+                <option value="cardinals">Denver Broncos</option>
+                <option value="cardinals">Detroit Lions</option>
+                <option value="cardinals">Green Bay Packers</option>
+                <option value="cardinals">Houston Texans</option>
+                <option value="cardinals">Indianapolis Colts</option>
+                <option value="cardinals">Jacksonville Jaguars</option>
+                <option value="cardinals">Kansas City Chiefs</option>
+                <option value="cardinals">Las Vegas Raiders</option>
+                <option value="cardinals">Los Angeles Chargers</option>
+                <option value="cardinals">Los Angeles Rams</option>
+                <option value="cardinals">Miami Dolphins</option>
+                <option value="cardinals">Minnesota Vikings</option>
+                <option value="cardinals">New England Patriots</option>
+                <option value="cardinals">New Orleans Saints</option>
+                <option value="cardinals">New York Giants</option>
+                <option value="cardinals">New York Jets</option>
+                <option value="cardinals">Philadelphia Eagles</option>
+                <option value="cardinals">Pittsburgh Steelers</option>
+                <option value="cardinals">San Francisco 49ers</option>
+                <option value="cardinals">Seattle Seahawks</option>
+                <option value="cardinals">Tampa Bay Buccaneers</option>
+                <option value="cardinals">Tennessee Titans</option>
+                <option value="cardinals">Washington Commanders</option>
+            </select>
+        <button class="submit-btn" type="submit" value="Submit"> Submit</button>
     </search>
 
     <div id="player-listing">

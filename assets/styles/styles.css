@@ -1,3 +1,4 @@
+/* HERO CUSTOM STYLES */
 .hero{
 }
 
@@ -15,7 +16,25 @@
     font-size: 18px;
 }
 
+/* SUBMIT CUSTOM STYLES */
 .submit-btn{
     border: solid black;
-    padding: 5px;
+    border-radius: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.submit-btn:hover{
+    background-color: lightblue;
+}
+
+.team-selector{
+    border: solid rgb(188, 195, 203);
+    border-radius: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
