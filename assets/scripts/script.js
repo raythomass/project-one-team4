@@ -1,15 +1,14 @@
 
 var submitBtn = document.getElementById("search-team-btn")
 var teams = document.getElementById("Teams")
-var playerListing = document.getElementById("player-listing")
+var playerListingBox = document.getElementById("player-listing-box")
 
 // TICKET_MASTER_API_KEY = "ej5KUdOFhWAlarKWiXJvCsEA8v2JU98K"
-var footballApi = "897300b6bd665bdbe7fd8b164607c7f4"
+var footballApi = "2160c0fdbecedae60a649ec139f1f29c"
 
 submitBtn.addEventListener("click", function () {
     var selectedTeam = teams.options[teams.selectedIndex].text;
-    var playerList = getTeam(selectedTeam);
-    console.log(playerList);
+    getTeam(selectedTeam);
 });
 
 function getTeam(teamName) {
@@ -56,10 +55,54 @@ function getTeamPlayers(teamId) {
                 height: data.response[i].height,
                 salary: data.response[i].salary
             }
-            console.log(playerInfo)
-            playerList.push(playerInfo)
+            playerList.push(playerInfo);
         }
-        
-        return playerList;
+        displayPlayers(playerList);
     });
 };
+
+function displayPlayers(playerList) {
+    
+    playerListingBox.innerHTML = "";
+
+    var playerUlEl = document.createElement("select")
+
+    for (var i = 0; i < playerList.length; i++) {
+
+        var playerElement = document.createElement("option");
+        playerElement.textContent = playerList[i].name;
+        playerUlEl.append(playerElement);
+    }
+    playerListingBox.append(playerUlEl)
+
+    playerListingBox.addEventListener("change", function() {
+        var selectedPlayer = playerUlEl.value;
+        for(var i = 0; i < playerList.length; i++) {
+            if (playerList[i].name == selectedPlayer) {
+                displayPlayerStats(playerList[i]);
+            }
+        }
+    });
+}
+
+function displayPlayerStats(selectedPlayerstats) {
+    var statEl = document.getElementById("player-stats")
+    statEl.innerHTML = "";
+
+    var ulEl = document.createElement("ul");
+    var pos = document.createElement("li");
+    var group = document.createElement("li");
+    var weight = document.createElement("li");
+    var height = document.createElement("li");
+    var salary = document.createElement("li");
+
+    pos.textContent = "Position: " + selectedPlayerstats.position;
+    group.textContent = "Group: " + selectedPlayerstats.group;
+    weight.textContent = "Weight: " + selectedPlayerstats.weight;
+    height.textContent = "Height: " + selectedPlayerstats.height;
+    salary.textContent = "Salary: " + selectedPlayerstats.salary;
+    
+    ulEl.append(pos, group, weight, height, salary);
+    statEl.append(ulEl);
+    
+}

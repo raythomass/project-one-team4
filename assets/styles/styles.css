@@ -16,6 +16,7 @@
     font-family: 'Urbanist';
     font-weight: 700;
     font-size: 55px;
+
 }
 
 .hero-info{
@@ -47,15 +48,15 @@
     padding-right: 10px;
 }
 
-.results{
+.results {
     display: flex;
     justify-content: space-between;
 }
 
-.result{
+.result {
     width: 600px;
     height: 200px;
-    margin: 10px;
+    margin: 10px;;
     border: 3px solid #333;
     background-color: rgb(188, 195, 203);
     font-family: 'Urbanist';
@@ -66,6 +67,10 @@
     margin-left: 300px;
     margin-right: 300px;
     margin-top: 50px;
+}
+
+.player-listing li:hover {
+    background-color: red;
 }
 
 .player-stats{
