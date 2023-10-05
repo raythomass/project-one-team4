@@ -1,9 +1,9 @@
 :root{
-    --red :#E70E02;
-    --red-orange : #F42B03;
-    --dark-orange : #D84A05;
-    --light-orange : #EC7505;
-    --yellow : #E89005;
+    --red : 231, 14, 2; alt: #E70E02;
+    --red-orange : 244, 43, 3; alt: #f42b03;
+    --dark-orange : 216, 74, 5; alt: #D84A05;
+    --light-orange : 236, 117, 5; alt: #EC7505;
+    --yellow : 232, 144, 5; alt: #E89005;
 }
 
 /* HERO CUSTOM STYLES */
@@ -58,7 +58,7 @@
     height: 200px;
     margin: 10px;;
     border: 3px solid #333;
-    background-color: rgb(188, 195, 203);
+    background-color: rgba(var(--red-orange), 0.8);
     font-family: 'Urbanist';
 }
 
