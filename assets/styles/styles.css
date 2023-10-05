@@ -1,3 +1,11 @@
+:root{
+    --red :#E70E02;
+    --red-orange : #F42B03;
+    --dark-orange : #D84A05;
+    --light-orange : #EC7505;
+    --yellow : #E89005;
+}
+
 /* HERO CUSTOM STYLES */
 .hero{
 }
@@ -5,15 +13,15 @@
 .hero-title{
     margin-top: 250px;
 
-    font-family: Gabarito;
-    font-weight: 600;
+    font-family: 'Urbanist';
+    font-weight: 700;
     font-size: 55px;
 }
 
 .hero-info{
-    font-family: Gabarito;
-    font-weight: 400;
-    font-size: 18px;
+    font-family: 'Urbanist';
+    font-weight: 500;
+    font-size: 20px;
 }
 
 /* SUBMIT CUSTOM STYLES */
@@ -27,7 +35,7 @@
 }
 
 .submit-btn:hover{
-    background-color: lightblue;
+    background-color: var(--yellow);
 }
 
 .team-selector{
@@ -50,7 +58,7 @@
     margin: 10px;
     border: 3px solid #333;
     background-color: rgb(188, 195, 203);
-    font-family: Gabarito;
+    font-family: 'Urbanist';
 }
 
 .player-listing, .standings{
