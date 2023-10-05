@@ -1,11 +1,16 @@
 
-var submitBtn = document.getElementById("search-btn")
-var searchBox = document.getElementById("search-bx")
+var submitBtn = document.getElementById("search-team-btn")
+var teams = document.getElementById("Teams")
 var playerListing = document.getElementById("player-listing")
-
 
 // TICKET_MASTER_API_KEY = "ej5KUdOFhWAlarKWiXJvCsEA8v2JU98K"
 var footballApi = "897300b6bd665bdbe7fd8b164607c7f4"
+
+submitBtn.addEventListener("click", function () {
+    var selectedTeam = teams.options[teams.selectedIndex].text;
+    var playerList = getTeam(selectedTeam);
+    console.log(playerList);
+});
 
 function getTeam(teamName) {
     // function that gets a team and all the players.
@@ -29,11 +34,11 @@ function getTeam(teamName) {
 function getTeamPlayers(teamId) {
 
     fetch("https://v1.american-football.api-sports.io/players?team=" + teamId +"&season=2023", {
-	"method": "GET",
-	"headers": {
-		"x-rapidapi-host": "v1.american-football.api-sports.io",
-		"x-rapidapi-key": footballApi
-	}
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-host": "v1.american-football.api-sports.io",
+            "x-rapidapi-key": footballApi
+	    }
     })
     .then(function (response) {
         return response.json();
@@ -54,9 +59,7 @@ function getTeamPlayers(teamId) {
             console.log(playerInfo)
             playerList.push(playerInfo)
         }
-        console.log(playerInfo)
-
-    })
-}
-
-getTeam("Arizona Cardinals")
+        
+        return playerList;
+    });
+};
