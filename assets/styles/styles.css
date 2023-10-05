@@ -38,3 +38,31 @@
     padding-left: 10px;
     padding-right: 10px;
 }
+
+.results{
+    display: flex;
+    justify-content: space-between;
+}
+
+.result{
+    width: 600px;
+    height: 200px;
+    margin: 10px;
+    border: 3px solid #333;
+    background-color: rgb(188, 195, 203);
+    font-family: Gabarito;
+}
+
+.player-listing, .standings{
+    min-height: 700px;
+    margin-left: 300px;
+    margin-right: 300px;
+    margin-top: 50px;
+}
+
+.player-stats{
+    min-height: 500px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 50px;
+}
