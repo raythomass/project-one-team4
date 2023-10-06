@@ -77,12 +77,16 @@ function displayPlayer(playerList) {
 // displayes a players stats.
 function displayPlayerStats(selectedPlayerstats) {
     
+    // get the box that displays stats.
     var statEl = document.getElementById("player-stats")
     statEl.innerHTML = "";
 
-    var ulEl = document.createElement("ul");
-    var college = document.createElement("ul");
-    var number = document.createElement("ul");
+    // create the ul.
+    var ulEl = document.createElement("ul") 
+
+    // define the stat list items to display
+    var college = document.createElement("li");
+    var number = document.createElement("li");
     var pos = document.createElement("li");
     var group = document.createElement("li");
     var weight = document.createElement("li");
@@ -90,6 +94,7 @@ function displayPlayerStats(selectedPlayerstats) {
     var salary = document.createElement("li");
     var playerImg = document.createElement("img");
 
+    // set the stat data.
     pos.textContent = "Position: " + selectedPlayerstats.position;
     group.textContent = "Group: " + selectedPlayerstats.group;
     college.textContent = "College: " + selectedPlayerstats.college;
@@ -98,8 +103,8 @@ function displayPlayerStats(selectedPlayerstats) {
     height.textContent = "Height: " + selectedPlayerstats.height;
     salary.textContent = "Salary: " + selectedPlayerstats.salary;
     playerImg.src = selectedPlayerstats.image
-    playerImg.alt = "Player picture not found."
-    
+
+    // add to ul.
     statEl.append(playerImg)
     ulEl.append(pos, group, college, number, weight, height, salary);
     statEl.append(ulEl);
