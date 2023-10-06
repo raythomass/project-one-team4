@@ -28,8 +28,8 @@
     </navbar>
 
     <hero class="hero flex flex-col items-center">
-        <h1 class="hero-title">Your personal football database</h1>
-        <p class="hero-info">Select your favorite team for the latest stats and information</p>
+        <h1 class="hero-title text-[55px] max-[800px]:text-4xl max-[550px]:text-2xl">Your personal football database</h1>
+        <p class="hero-info text-[20px] max-[800px]:text-lg max-[550px]:text-base">Select your favorite team for the latest stats and information</p>
     </hero>
     <search class="search-box flex justify-center items-center mt-12 gap-10">
         <!-- Label for tthe team selector (optional) -->
@@ -72,12 +72,14 @@
     </search>
 
     <div id="player-listing-box" class="player-listing"></div>
-    <div class="results">
-        <div id="player-stats" class="result player-stats"></div>
-        <div class="result standings"></div>
+
+    <div class="results flex justify-center gap-8 ml-16 mr-16 mt-16 max-[800px]:ml-8 max-[800px]:mr-8">
+        <div id="player-stats" class="result player-stats w-2/4"></div>
+        <div class="result standings w-2/4"></div>
     </div>
 
-    </div>
+    <footer class="h-20"></footer>
+
     <script src="./assets/scripts/script.js"></script>
 </body>
 </html>
