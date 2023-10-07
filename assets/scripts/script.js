@@ -4,7 +4,7 @@ var teams = document.getElementById("Teams")
 var playerListingBox = document.getElementById("player-listing-box")
 
 // TICKET_MASTER_API_KEY = "ej5KUdOFhWAlarKWiXJvCsEA8v2JU98K"
-var footballApi = "2160c0fdbecedae60a649ec139f1f29c"
+var footballApi = "897300b6bd665bdbe7fd8b164607c7f4" //"2160c0fdbecedae60a649ec139f1f29c"
 
 submitBtn.addEventListener("click", function () {
     var selectedTeam = teams.options[teams.selectedIndex].text;
@@ -22,6 +22,7 @@ function getTeam(teamName) {
         }
     })
     .then(function (response) {
+        console.log(response)
         return response.json();
     })
     .then(function (data) {
@@ -43,38 +44,25 @@ function getTeamPlayers(teamId) {
         return response.json();
     })
     .then(function (data) {
-        
-        var playerList = []
-
-        for(var i = 0; i < data.response.length; i++) {
-            var playerInfo = {
-                name: data.response[i].name,
-                position: data.response[i].position,
-                group: data.response[i].group,
-                weight: data.response[i].weight,
-                height: data.response[i].height,
-                salary: data.response[i].salary
-            }
-            playerList.push(playerInfo);
-        }
-        displayPlayers(playerList);
+        displayPlayer(data.response)
     });
 };
 
-function displayPlayers(playerList) {
-    
+function displayPlayer(playerList) {
     playerListingBox.innerHTML = "";
 
     var playerUlEl = document.createElement("select")
-
+    
+    // create the dropbox list of players
     for (var i = 0; i < playerList.length; i++) {
-
+        console.log(playerList[i])
         var playerElement = document.createElement("option");
         playerElement.textContent = playerList[i].name;
         playerUlEl.append(playerElement);
     }
     playerListingBox.append(playerUlEl)
-
+    
+    // add an event listener to each player to display their stats if selected.
     playerListingBox.addEventListener("change", function() {
         var selectedPlayer = playerUlEl.value;
         for(var i = 0; i < playerList.length; i++) {
@@ -85,24 +73,41 @@ function displayPlayers(playerList) {
     });
 }
 
-function displayPlayerStats(selectedPlayerstats) {
-    var statEl = document.getElementById("player-stats")
-    statEl.innerHTML = "";
 
-    var ulEl = document.createElement("ul");
+// displayes a players stats.
+function displayPlayerStats(selectedPlayerstats) {
+    
+    // get the box that displays stats.
+    var statsContainer = document.getElementById("player-stats")
+    var playerImg = document.getElementById("player-img")
+    var statsUl = document.getElementById("stats-ul")
+
+    statsUl.innerHTML = "";
+    playerImg.src = "";
+
+    // define the stat list items to display
+    var college = document.createElement("li");
+    var number = document.createElement("li");
     var pos = document.createElement("li");
     var group = document.createElement("li");
     var weight = document.createElement("li");
     var height = document.createElement("li");
     var salary = document.createElement("li");
 
+    // set the stat data.
     pos.textContent = "Position: " + selectedPlayerstats.position;
     group.textContent = "Group: " + selectedPlayerstats.group;
+    college.textContent = "College: " + selectedPlayerstats.college;
+    number.textContent = "Jersey Number: " + selectedPlayerstats.number;
     weight.textContent = "Weight: " + selectedPlayerstats.weight;
     height.textContent = "Height: " + selectedPlayerstats.height;
     salary.textContent = "Salary: " + selectedPlayerstats.salary;
-    
-    ulEl.append(pos, group, weight, height, salary);
-    statEl.append(ulEl);
+    playerImg.src = selectedPlayerstats.image
+
+    playerImg.classList.remove("hidden")
+    // add to ul.
+    statsContainer.append(playerImg)
+    statsUl.append(pos, group, college, number, weight, height, salary);
+    statsContainer.append(statsUl);
     
 }

@@ -73,9 +73,11 @@
     </search>
 
     <div id="player-listing-box" class="player-listing"></div>
-
-    <div class="results flex justify-center gap-8 ml-16 mr-16 mt-16 max-[800px]:ml-8 max-[800px]:mr-8">
-        <div id="player-stats" class="result player-stats w-2/4"></div>
+    <div class="results flex gap-8 ml-16 mr-16 mt-16 max-[800px]:ml-8 max-[800px]:mr-8">
+        <div id="player-stats" class="result player-stats rounded items-center w-2/4 flex items-center">
+            <img id="player-img" class="rounded w-1/2 hidden" src="" alt="Player Image">
+            <ul id="stats-ul" class="text-xl text-left w-1/2"> </ul>
+        </div>
         <div class="result standings w-2/4"></div>
     </div>
 
