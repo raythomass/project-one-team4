@@ -6,25 +6,63 @@
     --yellow : 232, 144, 5; alt: #E89005;
 }
 
+/* GLOBAL STYLES */
+.ml-8 {
+    background : linear-gradient(90deg, rgba(var(--red), 0.8) 0%, rgba(var(--red-orange), 0.8) 100%);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 5px;
+    font-family: 'Urbanist';
+    font-weight: 700;
+    
+}
+
+    
 /* HERO CUSTOM STYLES */
 .hero{
 }
 
 .hero-title{
     margin-top: 150px;
-
     font-family: 'Urbanist';
     font-weight: 700;
+    font-size: 55px;
 }
 
 .hero-info{
-    font-family: 'Urbanist';
-    font-weight: 500;
+        font-family: 'Urbanist';
+        font-weight: 500;
+        font-size: 20px;
+        margin-top: 20px;
+}
+
+.hero-title span{
+    color: white;
+    font-style: italic;
+    font-weight: 700;
+    background-color: #E89005;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.hero-info span{
+    color: white;
+    font-style: italic;
+    font-weight: 700;
+    background-color: #E89005;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 /* SUBMIT CUSTOM STYLES */
 .submit-btn{
-    border: solid black;
+    border: solid #f42b03;
     border-radius: 5px;
     padding-top: 5px;
     padding-bottom: 5px;
@@ -33,16 +71,20 @@
 }
 
 .submit-btn:hover{
-    background-color: var(--yellow);
+    background-color: rgba(var(--yellow), 0.8);
 }
 
 .team-selector{
-    border: solid rgb(188, 195, 203);
-    border-radius: 5px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
+        border: solid #f42b03;
+        border-radius: 5px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        padding-left: 10px;
+        padding-right: 10px;
+}
+
+.team-selector:hover{
+    background-color: rgba(var(--yellow), 0.8);
 }
 
 .result{
