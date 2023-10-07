@@ -78,11 +78,12 @@ function displayPlayer(playerList) {
 function displayPlayerStats(selectedPlayerstats) {
     
     // get the box that displays stats.
-    var statEl = document.getElementById("player-stats")
-    statEl.innerHTML = "";
+    var statsContainer = document.getElementById("player-stats")
+    var playerImg = document.getElementById("player-img")
+    var statsUl = document.getElementById("stats-ul")
 
-    // create the ul.
-    var ulEl = document.createElement("ul") 
+    statsUl.innerHTML = "";
+    playerImg.src = "";
 
     // define the stat list items to display
     var college = document.createElement("li");
@@ -92,7 +93,6 @@ function displayPlayerStats(selectedPlayerstats) {
     var weight = document.createElement("li");
     var height = document.createElement("li");
     var salary = document.createElement("li");
-    var playerImg = document.createElement("img");
 
     // set the stat data.
     pos.textContent = "Position: " + selectedPlayerstats.position;
@@ -104,9 +104,10 @@ function displayPlayerStats(selectedPlayerstats) {
     salary.textContent = "Salary: " + selectedPlayerstats.salary;
     playerImg.src = selectedPlayerstats.image
 
+    playerImg.classList.remove("hidden")
     // add to ul.
-    statEl.append(playerImg)
-    ulEl.append(pos, group, college, number, weight, height, salary);
-    statEl.append(ulEl);
+    statsContainer.append(playerImg)
+    statsUl.append(pos, group, college, number, weight, height, salary);
+    statsContainer.append(statsUl);
     
 }
