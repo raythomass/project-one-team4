@@ -5,7 +5,7 @@ var playerListingBox = document.getElementById("player-listing-box")
 var ticketbox = document.getElementById("ticketbox")
 
 
-// TICKET_MASTER_API_KEY = "ej5KUdOFhWAlarKWiXJvCsEA8v2JU98K"
+var ticketMasterKey = "ej5KUdOFhWAlarKWiXJvCsEA8v2JU98K"
 var footballApi = "897300b6bd665bdbe7fd8b164607c7f4" //"2160c0fdbecedae60a649ec139f1f29c"
 
 submitBtn.addEventListener("click", function () {
@@ -117,7 +117,7 @@ function displayPlayerStats(selectedPlayerstats) {
 }
 // function for the ticketmaster API.
 function getTickets(selectedTeam) {
-    fetch("https://app.ticketmaster.com/discovery/v2/events.json?locale=en-us&apikey=ej5KUdOFhWAlarKWiXJvCsEA8v2JU98K&classificationName=Football&subGenreId=KZazBEonSMnZfZ7vFE1&keyword=" + selectedTeam)
+    fetch(`https://app.ticketmaster.com/discovery/v2/events.json?locale=en-us&apikey=${ticketMasterKey}&classificationName=Football&subGenreId=KZazBEonSMnZfZ7vFE1&keyword=${selectedTeam}`)
     .then(function (response) {
         return response.json();
     })
