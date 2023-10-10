@@ -5,7 +5,7 @@ var playerListingBox = document.getElementById("player-listing-box")
 var ticketbox = document.getElementById("ticketbox")
 
 
-// TICKET_MASTER_API_KEY = "ej5KUdOFhWAlarKWiXJvCsEA8v2JU98K"
+var ticketMasterKey = "ej5KUdOFhWAlarKWiXJvCsEA8v2JU98K"
 var footballApi = "897300b6bd665bdbe7fd8b164607c7f4" //"2160c0fdbecedae60a649ec139f1f29c"
 
 submitBtn.addEventListener("click", function () {
@@ -25,7 +25,6 @@ function getTeam(teamName) {
         }
     })
     .then(function (response) {
-        console.log(response)
         return response.json();
     })
     .then(function (data) {
@@ -58,7 +57,6 @@ function displayPlayer(playerList) {
     
     // create the dropbox list of players
     for (var i = 0; i < playerList.length; i++) {
-        console.log(playerList[i])
         var playerElement = document.createElement("option");
         playerElement.textContent = playerList[i].name;
         playerUlEl.append(playerElement);
@@ -74,6 +72,8 @@ function displayPlayer(playerList) {
             }
         }
     });
+
+    displayPlayerStats(playerList[0])
 }
 
 
@@ -117,7 +117,7 @@ function displayPlayerStats(selectedPlayerstats) {
 }
 // function for the ticketmaster API.
 function getTickets(selectedTeam) {
-    fetch("https://app.ticketmaster.com/discovery/v2/events.json?locale=en-us&apikey=ej5KUdOFhWAlarKWiXJvCsEA8v2JU98K&classificationName=Football&subGenreId=KZazBEonSMnZfZ7vFE1&keyword=" + selectedTeam)
+    fetch(`https://app.ticketmaster.com/discovery/v2/events.json?locale=en-us&apikey=${ticketMasterKey}&classificationName=Football&subGenreId=KZazBEonSMnZfZ7vFE1&keyword=${selectedTeam}`)
     .then(function (response) {
         return response.json();
     })
@@ -126,26 +126,40 @@ function getTickets(selectedTeam) {
     });
 }
 
-function displayTickets(data) {
+function convertDateTime(timestamp) {
+    const date = new Date(timestamp);
+    const options = { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit', timeZoneName: 'short' };
+    const formattedDate = date.toLocaleDateString();
+    console.log(formattedDate);
+
+}
+function displayTickets(ticketData) {
+    
+    var events = ticketData._embedded.events;
+
     var ticketsContainer = document.getElementById("tickets")
     var ticketsUl = document.getElementById("tickets-ul")
 
     ticketsUl.innerHTML = "";
 
-    var ticket1 = document.createElement("li");
-    var ticket2 = document.createElement("li");
-    var ticket3 = document.createElement("li");
-    var ticket4 = document.createElement("li");
-    var ticket5 = document.createElement("li");
+    for (var i = 0; i < events.length; i++) {
+        var ticket = document.createElement("li");
+        var event = events[i];
+        var dateObject = new Date(event.dates.start.dateTime);
+        var month = dateObject.toLocaleString('default', { month: 'short' });
+        var day = dateObject.getUTCDate()
+        var time = event.dates.start.dateTime.split("T")[1].split("Z")[0];
 
-    ticket1.textContent = data._embedded.events[0].name;
-    ticket2.textContent = data._embedded.events[1].name;
-    ticket3.textContent = data._embedded.events[2].name;
-    ticket4.textContent = data._embedded.events[3].name;
-    
-    
-
-    ticketsUl.append(ticket1, ticket2, ticket3, ticket4, ticket5);
-    ticketsContainer.append(ticketsUl);
+        ticket.innerHTML = ` 
+        <div class='flex border m-2'> 
+            <div class='w-full md:w-1/2 lg:w-1/3 p-2'> ${month} <br> ${day} </div>
+            <div class='w-full'> ${event.name} </div>
+            <a href='${event.url}' class="button w-full md:w-1/2 lg:w-1/3 p-2 border border-gray m-3"> Click me > </a>
+        </div>
+        `
+        ticketsUl.append(ticket);
+    }
+    ticketsContainer.append(ticketsUl)
     ticketbox.append(ticketsContainer);
+
 }
