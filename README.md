@@ -17,6 +17,10 @@ No steps are required to install the project. The site is fully functional on ar
 To use the site, users will first select their favorite football team from the dropdown menu and press submit. This will then allow them to choose through a dropdown menu their favorite player from that team and see their picture with their player stats listed. When choosing an initial team from the menu, the user will also be given a list of games that they can click on the be redirected to TicketMaster for that specific game.
 ![Site Screenshot](./assets/images/Sports-Database.jpg)
 
+## Deployed Application
+
+https://raythomass.github.io/project-one-team4/
+
 ## Credits
 https://github.com/colbyrobins
 https://github.com/raythomass
